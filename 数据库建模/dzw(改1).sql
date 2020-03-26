@@ -353,6 +353,22 @@ CREATE TABLE artisan
    PRIMARY KEY (artisan_id)
 );
 
+drop table if exists recharge;
+
+/*==============================================================*/
+/* Table: 充值记录表                                          */
+/*==============================================================*/
+create table recharge
+(
+   recharge_id          varchar(20) not null,
+   recharge_money       float,
+   recharge_date        date,
+   user                 int,
+   recharge_card        int,
+   recharge_balance     float,
+   primary key (recharge_id)
+);
+
 ALTER TABLE Relationship_12 ADD CONSTRAINT FK_Relationship_12 FOREIGN KEY (post_id)
       REFERENCES post (post_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
