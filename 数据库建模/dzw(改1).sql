@@ -217,7 +217,8 @@ CREATE TABLE item_type
 /*==============================================================*/
 CREATE TABLE maintain
 (
-   maintain_id          VARCHAR(20) NOT NULL,
+   maintain_id		LONG  NOT NULL,
+   maintain_bill        VARCHAR(20) NOT NULL,
    car_id               INT,
    artisan_set_id       INT,
    artisan_id           INT,
@@ -369,6 +370,20 @@ create table recharge
    primary key (recharge_id)
 );
 
+/*==============================================================*/
+/* Table: 通讯名录                                           */
+/*==============================================================*/
+create table relation
+(
+   relation_id          int not null,
+   user_id              int,
+   user_phone_name      varchar(10),
+   user_relation        varchar(20),
+   user_phone           varchar(15),
+   user_address         varchar(100),
+   primary key (relation_id)
+);
+
 ALTER TABLE Relationship_12 ADD CONSTRAINT FK_Relationship_12 FOREIGN KEY (post_id)
       REFERENCES post (post_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
@@ -432,4 +447,4 @@ ALTER TABLE `supplier` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `supply_unit` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `user` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE `work_car` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-
+ALTER TABLE `relation` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
