@@ -217,7 +217,7 @@ CREATE TABLE item_type
 /*==============================================================*/
 CREATE TABLE maintain
 (
-   maintain_id		LONG  NOT NULL,
+   maintain_id		INT  NOT NULL AUTO_INCREMENT,
    maintain_bill        VARCHAR(20) NOT NULL,
    car_id               INT,
    artisan_set_id       INT,
@@ -243,7 +243,7 @@ CREATE TABLE maintain
 CREATE TABLE maintain_item
 (
    maintain_item_id     INT NOT NULL AUTO_INCREMENT,
-   maintain_id          VARCHAR(20),
+   maintain_id          INT,
    maintain_item_name   VARCHAR(20),
    maintain_item_money  FLOAT,
    maintain_time        FLOAT,
@@ -354,34 +354,34 @@ CREATE TABLE artisan
    PRIMARY KEY (artisan_id)
 );
 
-drop table if exists recharge;
+DROP TABLE IF EXISTS recharge;
 
 /*==============================================================*/
 /* Table: 充值记录表                                          */
 /*==============================================================*/
-create table recharge
+CREATE TABLE recharge
 (
-   recharge_id          varchar(20) not null,
-   recharge_money       float,
-   recharge_date        date,
-   user                 int,
-   recharge_card        int,
-   recharge_balance     float,
-   primary key (recharge_id)
+   recharge_id          VARCHAR(20) NOT NULL,
+   recharge_money       FLOAT,
+   recharge_date        DATE,
+   USER                 INT,
+   recharge_card        INT,
+   recharge_balance     FLOAT,
+   PRIMARY KEY (recharge_id)
 );
 
 /*==============================================================*/
 /* Table: 通讯名录                                           */
 /*==============================================================*/
-create table relation
+CREATE TABLE relation
 (
-   relation_id          int not null,
-   user_id              int,
-   user_phone_name      varchar(10),
-   user_relation        varchar(20),
-   user_phone           varchar(15),
-   user_address         varchar(100),
-   primary key (relation_id)
+   relation_id          INT NOT NULL,
+   user_id              INT,
+   user_phone_name      VARCHAR(10),
+   user_relation        VARCHAR(20),
+   user_phone           VARCHAR(15),
+   user_address         VARCHAR(100),
+   PRIMARY KEY (relation_id)
 );
 
 ALTER TABLE Relationship_12 ADD CONSTRAINT FK_Relationship_12 FOREIGN KEY (post_id)
